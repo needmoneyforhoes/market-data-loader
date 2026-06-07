@@ -8,12 +8,10 @@ Filters raw market history against a per-market quality tracker so every backtes
 
 | File | What it does |
 | --- | --- |
-| `load_clean.py` | `load_all()` reads every market from `market_history.jsonl`. `load_clean(min_available=90)` cross-references `computable_tracker.jsonl` and drops markets whose `available` field count is below the threshold. |
-| `check_null_rate.py` | Loads the clean set and reports the fraction of markets with `bn_delta_final` populated. |
+| `load_clean.py` | `load_all()` reads every market from `market_history.jsonl`. `load_clean(min_available=90)` cross-references `computable_tracker.jsonl` and drops markets whose `available` count is below the threshold. |
+| `check_null_rate.py` | Loads the clean set, prints the fraction of markets with `bn_delta_final` populated. |
 
-`load_clean` is import-first but also runs standalone, printing clean/dropped counts. With no `computable_tracker.jsonl` present it returns all markets and prints a warning.
-
-Stdlib only (`json`, `os`); Python 3.
+`load_clean` runs standalone or as an import. With no `computable_tracker.jsonl` present it returns all markets and prints a warning. Stdlib only (`json`, `os`), Python 3.
 
 ## Usage
 
@@ -31,4 +29,4 @@ all_m   = load_all()                  # unfiltered
 
 ## Data
 
-Reads `market_history.jsonl` and `computable_tracker.jsonl` from the working directory. Both are maintained in the private polymarket-data repo; run from its checkout or symlink the files in. Git-ignored here.
+Reads `market_history.jsonl` and `computable_tracker.jsonl` from the working directory. Both live in the private polymarket-data repo; run from its checkout or symlink the files in. Git-ignored here.
