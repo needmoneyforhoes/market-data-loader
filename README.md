@@ -30,3 +30,8 @@ all_m   = load_all()                  # unfiltered
 ## Data
 
 Reads `market_history.jsonl` and `computable_tracker.jsonl` from the working directory. Both live in the private polymarket-data repo; run from its checkout or symlink the files in. Git-ignored here.
+
+## Feedback
+
+Suggestions, improvements, or something not working? Please
+[open an issue](https://github.com/needmoneyforhoes/market-data-loader/issues/new). Pull requests are welcome too.
